@@ -1,4 +1,5 @@
 import random
+import time
 from words import words
 import string
 try_again_teller = 'y'
@@ -23,6 +24,10 @@ def hangman():
     while len(word_letters) > 0:
 
         if left_lives <= 0:
+            print("You Lost")
+            time.sleep(0.5)
+            print(f"The Word Was {word}")
+            time.sleep(1.5)
             break
         print(f"You have {left_lives} more lives")
         print("You have used these letters", ' '.join(guessed_letters).upper())
@@ -40,6 +45,8 @@ def hangman():
             print("You Have already Guessed it".title())
         else:
             print("WTF is that. Guess a word in the alphabet")
+        if len(word_letters) <= 0:
+            print("congratulations you win")
 
 
 if try_again_teller == 'y':
