@@ -2,7 +2,7 @@ import random
 import time
 from words import words
 import string
-try_again_teller = 'y'
+playing_again = True
 
 
 def chose_a_word(words):
@@ -13,6 +13,10 @@ def chose_a_word(words):
 
 
 def hangman():
+    global playing_again
+    global try_again_teller
+    try_again_teller = ''
+    playing_again = False
     word = chose_a_word(words)
     word_letters = set(word)
     alphabet = set(string.ascii_lowercase)
@@ -49,19 +53,18 @@ def hangman():
             print("congratulations you win")
 
 
-if try_again_teller == 'y':
-    try_again_teller = ''
+if playing_again:
+    print("bug")
     hangman()
 
-print("Wanna Play Again")
-try_again_teller = input(">>")
+
 while True:
+    print("Wanna Play Again")
+    try_again_teller = input(">>")
     if try_again_teller == 'y':
+        playing_again = True
         hangman()
     elif try_again_teller == 'n':
         break
     else:
         print("I didn't understand that")
-
-
-
