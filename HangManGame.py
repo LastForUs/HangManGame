@@ -1,6 +1,7 @@
 import random
 from words import words
 import string
+try_again_teller = 'y'
 
 
 def chose_a_word(words):
@@ -41,7 +42,9 @@ def hangman():
             print("WTF is that. Guess a word in the alphabet")
 
 
-hangman()
+if try_again_teller == 'y':
+    try_again_teller = ''
+    hangman()
 
 print("Wanna Play Again")
 try_again_teller = input(">>")
