@@ -21,9 +21,9 @@ def hangman():
 
     while len(word_letters) > 0:
 
-        if left_lives < 0:
+        if left_lives <= 0:
             break
-        print(f"You have {lives} more lives")
+        print(f"You have {left_lives} more lives")
         print("You have used these letters", ' '.join(guessed_letters).upper())
         word_list = [letter if letter in guessed_letters else '-' for letter in word]
         print('Current Word Is:', ' '.join(word_list).upper())
@@ -42,5 +42,16 @@ def hangman():
 
 
 hangman()
+
+print("Wanna Play Again")
+try_again_teller = input(">>")
+while True:
+    if try_again_teller == 'y':
+        hangman()
+    elif try_again_teller == 'n':
+        break
+    else:
+        print("I didn't understand that")
+
 
 
